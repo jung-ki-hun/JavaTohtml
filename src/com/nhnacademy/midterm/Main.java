@@ -17,6 +17,7 @@ public class Main {
 
         for(String line : lines){
         //    System.out.println("line:" + line);
+            line.replace(" ","&nbsp;`");
         }
 
         StringBuilder sb  = new StringBuilder();

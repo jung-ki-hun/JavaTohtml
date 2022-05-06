@@ -13,12 +13,12 @@ public class JavaDataBaseSingleton {
     }
 
     public String selectDataBase() {
-        return dataBase;
+        return dataBase.toString();
     }
 
-    public void updateDataBase(String dataBase) {
-        this.dataBase = dataBase;
+    public void updateDataBase(String sqlData) {
+        this.dataBase.append(sqlData);
     }
 
-    private String dataBase;
+    private StringBuilder dataBase;
 }

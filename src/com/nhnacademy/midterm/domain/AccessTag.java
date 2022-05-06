@@ -23,6 +23,9 @@ public class AccessTag implements Tag{
     public String getTagValue() {
         return tagValue;
     }
+    public void setTagValue(String tagValue) {
+        this.tagValue = this.accessTagMap.get(tagValue);
+    }
     //todo #3 방문자가 처리함
     @Override
     public String accpetTag(Visitor visit) {
