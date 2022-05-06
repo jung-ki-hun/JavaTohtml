@@ -8,12 +8,11 @@ import com.nhnacademy.midterm.domain.ProcessingTag;
 public class VistorListener implements Visitor{
     String doDefiningTag;
 
-    public VistorListener(String doDefiningTag) {
-        String [] temp = doDefiningTag.split("&nbsp;");
-        this.doDefiningTag =temp[0];
+    public void setDoDefiningTag(String doDefiningTag) {
+        this.doDefiningTag = doDefiningTag;
     }
 
-    public void setDoDefiningTag(String doDefiningTag) {
+    public VistorListener(String doDefiningTag) {
         this.doDefiningTag = doDefiningTag;
     }
 

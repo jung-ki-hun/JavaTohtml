@@ -12,6 +12,9 @@ public class ProcessingTag implements Tag{
         accessTagMap.put("if","<span style='color:bule'>if</span>");
         accessTagMap.put("import","<span style='color:bule'>import</span>");
         accessTagMap.put("synchronized","<span style='color:bule'>synchronized</span>");
+        accessTagMap.put("while","<span style='color:bule'>while</span>");
+        accessTagMap.put("this","<span style='color:bule'>this</span>");
+        accessTagMap.put("return","<span style='color:bule'>return</span>");
 
     }
     private String tagValue;

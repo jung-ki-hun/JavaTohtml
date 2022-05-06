@@ -36,7 +36,7 @@ public class Main {
         sb.append("i = 5; <br>");
         sb.append("}<br/>");
         /**Sample**********************************************/
-      //  System.out.println(JavaDataBaseSingleton.getInstance().selectDataBase());
+        System.out.println(JavaDataBaseSingleton.getInstance().selectDataBase());
         String templateHtmlPath = basePath + File.separator +"data"+ File.separator+"template.html";
         String destHtmlPath = basePath + File.separator +"html"+ File.separator + targetJavaFileName + ".html";
         JavaFileUtil.getInstance().createHtml(templateHtmlPath,destHtmlPath, JavaDataBaseSingleton.getInstance()

@@ -12,6 +12,8 @@ public class AccessTag implements Tag{
         accessTagMap.put("private","<span style='color:bule'>private</span>");
         accessTagMap.put("protected","<span style='color:bule'>protected</span>");
         accessTagMap.put("package","<span style='color:bule'>package</span>");
+        accessTagMap.put("static","<span style='color:bule'>static</span>");
+
 
     }
     private String tagValue;

@@ -15,7 +15,9 @@ public class DataTypeTag {
         accessTagMap.put("implements", "<span style='color:bule'>implements</span>");
         accessTagMap.put("boolean", "<span style='color:bule'>boolean</span>");
         accessTagMap.put("interface", "<span style='color:bule'>class</span>");
-
+        accessTagMap.put("null","<span style='color:bule'>null</span>");
+        accessTagMap.put("false", "<span style='color:bule'>false</span>");
+        accessTagMap.put("true","<span style='color:bule'>true</span>");
 
     }
 
