@@ -13,6 +13,10 @@ public class DataTypeTag {
         accessTagMap.put("float", "<span style='color:bule'>float</span>");
         accessTagMap.put("class", "<span style='color:bule'>class</span>");
         accessTagMap.put("implements", "<span style='color:bule'>implements</span>");
+        accessTagMap.put("boolean", "<span style='color:bule'>boolean</span>");
+        accessTagMap.put("interface", "<span style='color:bule'>class</span>");
+
+
     }
 
     private String tagValue;

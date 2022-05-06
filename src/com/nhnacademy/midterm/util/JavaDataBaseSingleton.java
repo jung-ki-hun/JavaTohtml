@@ -5,8 +5,8 @@ public class JavaDataBaseSingleton {
     private JavaDataBaseSingleton(){}
 
     public static JavaDataBaseSingleton getInstance() {
-        if(javaDataBaseSingleton == null) { // 1번 : 쓰레드가 동시 접근시 문제
-            javaDataBaseSingleton = new JavaDataBaseSingleton(); // 2번 : 쓰레드가 동시 접근시 인스턴스 여러번 생성
+        if(javaDataBaseSingleton == null) {
+            javaDataBaseSingleton = new JavaDataBaseSingleton();
              }
              return javaDataBaseSingleton;
 
