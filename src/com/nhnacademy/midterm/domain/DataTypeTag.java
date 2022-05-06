@@ -4,7 +4,7 @@ import com.nhnacademy.midterm.visitor.Visitor;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataTypeTag {
+public class DataTypeTag implements Tag {
     Map<String, String> accessTagMap = new HashMap<>();
 
     {
@@ -38,7 +38,7 @@ public class DataTypeTag {
     public String getTagValue() {
         return tagValue;
     }
-
+    @Override
     public String accpetTag(Visitor visit) {
         return visit.visit(this);
     }
