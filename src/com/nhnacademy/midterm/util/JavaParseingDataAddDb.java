@@ -20,17 +20,20 @@ public class JavaParseingDataAddDb {
     }
 
     //#todo #2 파싱진행
-    private List<String[]> afterParseing = new ArrayList<>();
+    private List<List<String>> afterParseing = new ArrayList<>();
     void setAfterParsering(){
-        int i =0;
+
         String [] temp;
-        for(i=0;i<SIZE;i++) {
-            temp = beforeParseing.get(i).split("`");
-            for (String str:temp){
-                System.out.println("ss : "+str);
+        for(int i=0;i<SIZE;i++) {
+            temp = beforeParseing.get(i).split("`"); //한줄 단위
+            for (int j = 0; j < temp.length; j++) {
+                afterParseing.get(i).add(String.valueOf(temp));
             }
-            afterParseing.add(temp);
+            afterParseing.get(i).add("\n");
+
         }
+
+
         findTag();
     }
     //#todo #3 알맞은 tag 바탕으로 Visitor들고옴
@@ -41,20 +44,20 @@ public class JavaParseingDataAddDb {
         CommandTag ct = new CommandTag();
         DataTypeTag dt = new DataTypeTag();
         for(int i= 0; i<SIZE;i++){
-            for (int j = 0; j < afterParseing.get(i).length; j++) {
-               String temp = afterParseing.get(i)[j];
+            for (int j = 0; j < afterParseing.get(i).size(); j++) {
+               String  temp = afterParseing.get(i).get(j);
+               // System.out.println(temp);
                if(temp.contains("public")
                    ||temp.contains("private")
                    ||temp.contains("protected")
                    ||temp.contains("packeage")
                ){
-
-                   afterParseing.get(i)[j] = at.accpetTag(new VistorListener(temp));
+                   afterParseing.get(i).set(j, at.accpetTag(new VistorListener(temp)));
                }//todo fix 주석 하는 문장 전부 색칠하도록 수정하기..
                 if(temp.contains("//")
                     ||temp.contains("/*")
                     ||temp.contains("*/")){
-                    afterParseing.get(i)[j] = ct.accpetTag(new VistorListener(temp));
+                    afterParseing.get(i).set(j, ct.accpetTag(new VistorListener(temp)));
                 }
                 if(temp.contains("int")
                     ||temp.contains("double")
@@ -64,27 +67,30 @@ public class JavaParseingDataAddDb {
                     ||temp.contains("boolean")
                     ||temp.contains("interface")){
 
-                    afterParseing.get(i)[j] = dt.accpetTag(new VistorListener(temp));
+                    afterParseing.get(i).set(j, dt.accpetTag(new VistorListener(temp)));
                 }
                 if(temp.contains("for")
                     ||temp.contains("new")
                     ||temp.contains("if")
                     ||temp.contains("import")
                     ||temp.contains("synchronized")){
-                    afterParseing.get(i)[j] = pt.accpetTag(new VistorListener(temp));
+                    afterParseing.get(i).set(j, pt.accpetTag(new VistorListener(temp)));
                 }//변환
             }
+           // System.out.println(afterParseing.get(i));
             saveDb(afterParseing.get(i));
         }
     }
     //#todo #4 db에 업로드하기
     JavaDataBaseSingleton javaDataBase = JavaDataBaseSingleton.getInstance();
-    private void saveDb(String [] sql){
+    private void saveDb(List <String> sql){
         StringBuilder temp = new StringBuilder();
-        for (int i = 0; i < sql.length; i++) {
-            temp.append(sql);
+        for (int i = 0; i < sql.size(); i++) {
+           // System.out.println(sql[i]);
+            temp.append(sql.get(i));
         }
-        temp.append(String.valueOf(sql).repeat(sql.length));
+        //temp.append(String.valueOf(sql).repeat(sql.length));
+       // temp.append("\n");
         javaDataBase.updateDataBase(temp.toString());
     }
 }
