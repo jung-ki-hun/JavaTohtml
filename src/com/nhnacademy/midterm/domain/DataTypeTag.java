@@ -25,6 +25,10 @@ public class DataTypeTag {
         this.tagValue = this.accessTagMap.get(tagValue);
     }
 
+    public DataTypeTag() {
+
+    }
+
     public void setTagValue(String tagValue) {
         this.tagValue = this.accessTagMap.get(tagValue);
     }

@@ -11,7 +11,7 @@ public class JavaDataBaseSingleton {
              return javaDataBaseSingleton;
 
     }
-
+    private StringBuilder dataBase =new StringBuilder();
     public String selectDataBase() {
         return dataBase.toString();
     }
@@ -20,5 +20,5 @@ public class JavaDataBaseSingleton {
         this.dataBase.append(sqlData);
     }
 
-    private StringBuilder dataBase;
+
 }

@@ -20,6 +20,10 @@ public class AccessTag implements Tag{
        this.tagValue = this.accessTagMap.get(tag);
     }
 
+    public AccessTag() {
+
+    }
+
     public String getTagValue() {
         return tagValue;
     }

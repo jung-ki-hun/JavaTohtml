@@ -14,6 +14,10 @@ public class CommandTag implements Tag {
     private String tagValue;
     public CommandTag(String tagValue){this.tagValue=this.accessTagMap.get(tagValue);}
 
+    public CommandTag() {
+
+    }
+
     public String getTagValue() {
         return tagValue;
     }

@@ -17,12 +17,16 @@ public class Main {
         String basePath = System.getProperty("user.dir");
         String filePath1 = basePath + File.separator + "data" + File.separator + targetJavaFileName + ".java";
         List<String> lines = JavaFileUtil.getInstance().read(filePath1);
-        List<String> linesToNbsp = new ArrayList<String>();
+        List<String> linesToNbsp = new ArrayList<>();
+        int n =0;
         for(String line : lines){
-        //    System.out.println("line:" + line);
+            //System.out.println("line:" + line);
            linesToNbsp.add(line.replace(" ","&nbsp;`"));
+//            System.out.println("line2:"+linesToNbsp.get(n));
+//            n++;
         }
         JavaParseingDataAddDb jpdab = new JavaParseingDataAddDb(linesToNbsp);
+        //jpdab.setAfterParsering();
         StringBuilder sb  = new StringBuilder();
         /**Sample**********************************************/
         sb.append("<span style='color:blue'>public</span>");
@@ -32,12 +36,12 @@ public class Main {
         sb.append("i = 5; <br>");
         sb.append("}<br/>");
         /**Sample**********************************************/
-
+        System.out.println(JavaDataBaseSingleton.getInstance().selectDataBase());
         String templateHtmlPath = basePath + File.separator +"data"+ File.separator+"template.html";
         String destHtmlPath = basePath + File.separator +"html"+ File.separator + targetJavaFileName + ".html";
         JavaFileUtil.getInstance().createHtml(templateHtmlPath,destHtmlPath, JavaDataBaseSingleton.getInstance()
             .selectDataBase());
-        //JavaFileUtil.getInstance().createHtml(templateHtmlPath,destHtmlPath,sb.toString());
+       // JavaFileUtil.getInstance().createHtml(templateHtmlPath,destHtmlPath,sb.toString());
 
     }
 

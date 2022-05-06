@@ -20,6 +20,10 @@ public class ProcessingTag implements Tag{
         this.tagValue = this.accessTagMap.get(tagValue);
     }
 
+    public ProcessingTag() {
+
+    }
+
     public String getTagValue() {
         return tagValue;
     }
