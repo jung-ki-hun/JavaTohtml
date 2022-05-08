@@ -7,9 +7,9 @@ import java.util.Map;
 public class CommandTag implements Tag {
     Map<String,String> accessTagMap = new HashMap<>();
     {
-        accessTagMap.put("//","<p style='color:green'>");
-        accessTagMap.put("/*","<p style='color:green'>");
-        accessTagMap.put("*/","</p>");
+        accessTagMap.put("//","<span style='color:green'>");
+        accessTagMap.put("/*","<span style='color:green'>");
+        accessTagMap.put("*/","</span>");
     }
     private String tagValue;
     public CommandTag(String tagValue){this.tagValue=this.accessTagMap.get(tagValue);}

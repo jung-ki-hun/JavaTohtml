@@ -15,18 +15,13 @@ public class ProcessingTag implements Tag{
         accessTagMap.put("while","<span style='color:bule'>while</span>");
         accessTagMap.put("this","<span style='color:bule'>this</span>");
         accessTagMap.put("return","<span style='color:bule'>return</span>");
-
     }
     private String tagValue;
 
     public ProcessingTag(String tagValue) {
         this.tagValue = this.accessTagMap.get(tagValue);
     }
-
-    public ProcessingTag() {
-
-    }
-
+    public ProcessingTag() {}
     public String getTagValue() {
         return tagValue;
     }
@@ -37,5 +32,4 @@ public class ProcessingTag implements Tag{
     public String accpetTag(Visitor visit) {
         return visit.visit(this);
     }
-
 }

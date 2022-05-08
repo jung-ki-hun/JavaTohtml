@@ -49,7 +49,7 @@ public class JavaParseingDataAddDb {
                    ||temp.contains("packeage")
                    ||temp.contains("static")
                ){
-                   afterParseing.get(i)[j] = at.accpetTag(new VistorListener(temp));
+                   afterParseing.get(i)[j].replace(temp,at.accpetTag(new VistorListener(temp)));
                }//todo fix 주석 하는 문장 전부 색칠하도록 수정하기..
                 if(temp.contains("//")
                     ||temp.contains("/*")
@@ -67,7 +67,7 @@ public class JavaParseingDataAddDb {
                     ||temp.contains("false")
                     ||temp.contains("true")){
 
-                    afterParseing.get(i)[j] = dt.accpetTag(new VistorListener(temp+" "));
+                    afterParseing.get(i)[j].replace(temp,dt.accpetTag(new VistorListener(temp+" ")));
                 }
                 if(temp.contains("for")
                     ||temp.contains("new")
@@ -77,7 +77,7 @@ public class JavaParseingDataAddDb {
                     ||temp.contains("while")
                     ||temp.contains("this")
                     ||temp.contains("return")){
-                    afterParseing.get(i)[j] = pt.accpetTag(new VistorListener(temp));
+                    afterParseing.get(i)[j].replace(temp,pt.accpetTag(new VistorListener(temp)));
                 }//변환
             }
             System.out.println("dsfds : "+afterParseing.get(i));
@@ -90,7 +90,7 @@ public class JavaParseingDataAddDb {
         StringBuilder temp = new StringBuilder();
         for (int i = 0; i < sql.length; i++) {
             temp.append(sql[i]);
-        }temp.append("\n");
+        }temp.append("<br>");
        // temp.append(String.valueOf(sql).repeat(sql.length));
         javaDataBase.updateDataBase(temp.toString());
     }

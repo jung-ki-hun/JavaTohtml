@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String targetJavaFileName="ErrorManager";
+        String targetJavaFileName="CollectionToStringConverter";
         //application 실행되는 경로
         String basePath = System.getProperty("user.dir");
         String filePath1 = basePath + File.separator + "data" + File.separator + targetJavaFileName + ".java";
